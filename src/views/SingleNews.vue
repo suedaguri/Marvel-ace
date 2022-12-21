@@ -1,6 +1,6 @@
 <template>
     <body>
-    <article class="single-article">
+    <article class="single-article nav-i">
       <div class="container">
         <div class="app">
         <div class="header-title header-title--margin">Super<span class="header-orange">Hero.</span></div>
@@ -14,18 +14,17 @@
          <div class="header-title">{{ news.name }}</div>
           <hr class="pink-line"/>
           <div class="content">
-            <div class="margin-text"><span class="header-title gray-text ">ID: </span>{{ news.id }}</div>
-          <div class="margin-text"><span class="header-title gray-text ">Description: </span>{{ news.description }}</div>
-          <div class="margin-text"><span class="header-title gray-text ">Available comics: </span>{{ news.comics.available}}</div>
-          <div class="margin-text"><span class="header-title gray-text ">Available series: </span>{{ news.series.available}}</div>
-          <div class="margin-text"><span class="header-title gray-text ">Available stories: </span>{{ news.stories.available}}</div>
-          <div class="margin-text"><span class="header-title gray-text ">Date modified: </span>{{ news.modified}}</div>
-          <div class="alignment2">
+          <div class="margin-text"><span class="gray-text ">ID: </span>{{ news.id }}</div>
+          <div class="margin-text"><span class="gray-text ">Description: </span>{{ news.description }}</div>
+          <div class="margin-text"><span class="gray-text ">Available comics: </span>{{ news.comics.available}}</div>
+          <div class="margin-text"><span class="gray-text ">Available series: </span>{{ news.series.available}}</div>
+          <div class="margin-text"><span class="gray-text ">Available stories: </span>{{ news.stories.available}}</div>
+          <div class="margin-text last"><span class="gray-text">Date modified: </span>{{ news.modified}}</div>
+          </div>
           <a target="_blank" class="button is-link alignment" :href="news.urls[2].url">COMIC LINK</a>
           <a target="_blank" class="button is-link alignment" :href="news.urls[0].url">MORE DETAILS</a>
         </div>
-        </div>
-      </div>
+      
     </div>
     </div>
     </div>
@@ -60,25 +59,130 @@ export default {
   }
 }
 </script>
-
 <style>
 .single-article {
+  color: white;
   padding-top: 60px;
   padding-bottom: 60px;
   text-align: left;
 }
-.gray-text {
-  font-size: 1rem!important;
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.margin-text-last{
-  margin-bottom: 2.6rem;
-}
-.alignment{
-  margin-top: 1.5rem;
-  margin-right: .5rem;
-}
-.alignment2{
+.border {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(255,255,255, 0.1);
+  border-radius: 2px;
+  padding-bottom: 2.6rem;
+  margin: .4rem 0;
+}
+
+.app {
+background-color: #0a0a0a;
+margin-top: 2rem;
+margin-left: 9rem;
+margin-right: 9rem ;
+margin-bottom: 10rem;
+padding: 4rem 6rem;
+border-radius: 6px;
+color: #fff;
+box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
+}
+.header-orange {
+  color: #f64445;
+}
+.header-title, .header-title1{
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+
+.header-title--margin {
+  margin-bottom: 2rem;
+}
+
+.column.is-half:first-child{
+  width: 39%;
+}
+.column.is-half:nth-child(2){
+ width: 60%;
+}
+hr.pink-line {
+  background: #f64445;
+  margin-top: .5rem;
+  height: 1.5px;
+  margin-bottom: 2rem;
+}
+
+.content {
+  font-family: "Poppins";
+}
+
+.gray-text {
+  color: gray;
+}
+.margin-text{
+  padding-bottom: .5rem;
+}
+.alignment {
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+@media(max-width: 767px){
+  .single-article{
+    text-align: center;
+  }
+  .columns{
+    grid-template-columns: 1fr;
+  }
+  .header-title-margin{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 1rem;
+  }
+  .border{
+    padding-top: 0;
+  }
+.column.is-half:nth-child(2){
+width: 100%;
+}
+.column.is-half:first-child{
+width: 100%;
+}
+.border{
+padding-top: 50px;
+}
+}
+@media(min-width: 768px)and (max-width: 1024px){
+  .nav-i{
+    display: flex;
+  }
+  .single-article{
+    text-align: center;
+  }
+  .columns{
+    grid-template-columns: 1fr;
+  }
+  .header-title-margin{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 1rem;
+  }
+  .column.is-half:nth-child(2){
+width: 90%;
+}
+.column.is-half:first-child{
+width: 100%;
+}
+.border{
+    padding-top: 0;
+  }
+  .alignment{
+    margin-bottom: 15px;
+  }
 }
 </style>

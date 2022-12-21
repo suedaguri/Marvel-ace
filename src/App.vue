@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <nav class="navbar is-warning">
+    <nav class="navbar is-warning nav-i">
+      <div class="logoimg">
     <router-link to="/"><img src="./assets/marvel.png" alt="" style="width:80px; height:80px;"></router-link>
+  </div>
     <div class="navbar-list">
     <div class="firstchild">
     <router-link to="/"> Characters </router-link> 
@@ -43,4 +45,24 @@ font-family: 'Poppins';
   display: flex;
   justify-content: space-around;
 }
+@media(max-width: 767px){
+  .navbar{
+    height:12rem;
+    justify-content: flex-end;
+  }
+.navbar-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 26px;
+}
+.logoimg{
+  display: flex;
+  justify-content: center;
+}
+  }
+  @media(min-width: 768px)and (max-width: 1024px){
+.nav-i{
+  display: flex;
+}}
 </style>

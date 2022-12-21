@@ -3,7 +3,7 @@
     <article class="single-article">
       <div class="container">
         <div class="app">
-        <div class="header-title header-title--margin">Super<span class="header-orange">Comic.</span></div>
+        <div class="header-title1 header-title--margin">Super<span class="header-orange">Comic.</span></div>
         <div class="border">
         <div v-for="news in marvelCharacter" :key="news.title">
           <div class="columns">
@@ -91,7 +91,7 @@
   .header-orange {
     color: #f64445;
   }
-  .header-title{
+  .header-title, .header-title1{
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1.7rem;
@@ -127,4 +127,41 @@
   .alignment {
     float: right;
   }
+  @media(max-width: 767px){
+    .single-article{
+      text-align: center;
+    }
+    .columns{
+      grid-template-columns: 1fr;
+    }
+    .header-title-margin{
+     display: flex;
+     justify-content: center;
+     margin-bottom: 1rem;
+    }
+    .border{
+      padding-top: 0;
+    }
+.app{
+  margin: 0;
+  padding-top: 50px ;
+}
+.column.is-half:nth-child(2){
+  width: 100%;
+}
+.column.is-half:first-child{
+  width: 100%;
+}
+.border{
+  padding-top: 50px;
+}
+.alignment{
+  float: none;
+}
+  }
+  @media(min-width: 768px)and (max-width: 1024px){
+    .alignment{
+      float: none;
+    }
+}
   </style>
