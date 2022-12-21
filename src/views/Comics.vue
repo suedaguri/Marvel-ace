@@ -1,0 +1,72 @@
+<template>
+    <div id="app">
+      <div class="container">
+      <h1 class="title format-text">Comics</h1>
+      <div class="form-input">
+      <input class="input form-size" type="text" v-model="search" placeholder="Search for your comic here...">
+      </div>
+        <div class="card-list">
+          <ComicsItem class="card-list-element" v-for="news in filteredPosts" :key="news.id"
+            :cardID = "news.id"
+            :cardTitle="news.title"
+            :cardImage="`${news.thumbnail.path}.${news.thumbnail.extension}`"
+            >
+          </ComicsItem>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+  import ComicsItem from '@/components/ComicItem';
+  
+  export default {
+    name: 'comic-Item',
+    components: {
+      ComicsItem
+    },
+    data() {
+      return {
+        newsList: [],
+        search: ''
+      }
+    },
+    methods : {
+      fetchNews() {
+        fetch('https://gateway.marvel.com:443/v1/public/comics?ts=1&apikey=d2ca9edd4af913f574f7106d3938aa10&hash=39c369c7ffefca54e9133674f8be9e84&limit=39&offset=291')
+        .then(response => response.json())
+        .then((result) => {
+                  result.data.results.forEach((item)=>{
+                      this.newsList.push(item)
+                  })
+              })
+      }
+    },
+    computed : {
+  filteredPosts() {
+    return this.newsList.filter(news => news.title.toLowerCase().includes(this.search.toLowerCase()));
+  }
+},
+    mounted() {
+      this.fetchNews();
+    }
+  }
+  </script>
+  
+  <style>
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .card-list-element:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    img {
+      object-fit:  cover !important;
+    }
+  </style>
+  

@@ -1,9 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="text-alignment">
     <div class="container">
-      <input type="text" v-model="search">
+      <h1 class="title format-text">Characters</h1>
+      <div class="form-input">
+      <input class="input form-size" type="text" v-model="search" placeholder="Search for your superhero here...">
+      </div>
       <div class="card-list">
-        <CardItem v-for="news in filteredPosts" :key="news.id"
+        <CardItem class="card-list-element" v-for="news in filteredPosts" :key="news.id"
           :cardID = "news.id"
           :cardTitle="news.name"
           :cardImage="`${news.thumbnail.path}.${news.thumbnail.extension}`"
@@ -30,7 +33,7 @@ export default {
   },
   methods : {
     fetchNews() {
-      fetch('https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=d2ca9edd4af913f574f7106d3938aa10&hash=39c369c7ffefca54e9133674f8be9e84&limit=45&offset=291')
+      fetch('https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=d2ca9edd4af913f574f7106d3938aa10&hash=39c369c7ffefca54e9133674f8be9e84&limit=39&offset=291')
       .then(response => response.json())
       .then((result) => {
                 result.data.results.forEach((item)=>{
@@ -51,6 +54,12 @@ filteredPosts() {
 </script>
 
 <style>
+html {
+  background: #272727;
+}
+.text-alignment{
+  text-align: center;
+}
   .card-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -60,5 +69,31 @@ filteredPosts() {
   }
   img {
     object-fit:  cover !important;
+  }
+  .format-text {
+    font-family: helvetica;
+    text-transform: uppercase;
+    font-size:50px ;
+    color:#cc4545;
+    text-align: center;
+    padding-top: 70px;
+  }
+  .form-size {
+    width:35%;
+    background: #b03b3b;
+    color: white;
+  }
+  .form-size::placeholder {
+    color: white;
+    opacity: .7;
+  }
+  .form-input {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .input:focus {
+    outline: none !important;
+    border:1px solid black;
   }
 </style>
