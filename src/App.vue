@@ -3,7 +3,7 @@
     <nav class="navbar is-warning">
     <router-link to="/"><img src="./assets/marvel.png" alt="" style="width:80px; height:80px;"></router-link>
     <div class="navbar-list">
-      <div class="firstchild">
+    <div class="firstchild">
     <router-link to="/"> Characters </router-link> 
     </div>
     <router-link to="/comics" class="comics"> Comics  </router-link>
@@ -33,6 +33,8 @@ nav a.router-link-exact-active {
 display: flex;
 justify-content: space-between;
 align-items: center;  
+text-transform: uppercase;
+font-family: 'Poppins';
 }
 .firstchild {
   padding-right: 20px;
