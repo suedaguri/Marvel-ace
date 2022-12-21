@@ -99,19 +99,23 @@ html {
   @media (max-width:767px) {
     
     .card-list {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 30px;
-    padding:50px;
+  grid-template-columns: 1fr;
+  padding: 15px;
+  }
+  .form-size{
+    width: 55%;
+  }
+  .form-input {
+    margin-bottom: 45px;
   }
   }
   @media(min-width: 768px)and (max-width: 1024px){
     .card-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 30px;
-    
+  grid-template-columns: 1fr;
+    padding: 15px;
+  }
+  .form-input {
+    margin-bottom: 45px;
   }
 }
 </style>

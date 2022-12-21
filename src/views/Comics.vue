@@ -68,5 +68,27 @@
     img {
       object-fit:  cover !important;
     }
+    @media (max-width:767px) {
+    
+    .card-list {
+grid-template-columns: 1fr;
+padding: 15px;
+  }
+  .form-size{
+    width: 55%;
+  }
+  .form-input {
+    margin-bottom: 45px;
+  }
+  }
+  @media(min-width: 768px)and (max-width: 1024px){
+    .card-list {
+grid-template-columns: 1fr;
+padding: 15px;
+  }
+  .form-input {
+    margin-bottom: 40px;
+  }
+}
   </style>
   
