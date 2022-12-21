@@ -14,10 +14,16 @@
          <div class="header-title">{{ news.name }}</div>
           <hr class="pink-line"/>
           <div class="content">
-          <div class="margin-text"><span class="gray-text">Description: </span>{{ news.description }}</div>
-          <div class="margin-text"><span class="gray-text">Format: </span>{{news.format}}</div>
-          <div class="margin-text-last"><span class="gray-text">Number of Pages: </span>{{news.pageCount}}</div>
-          <a target="_blank" class="button is-link alignment" :href="news.urls[0].url">More about me</a>
+            <div class="margin-text"><span class="header-title gray-text ">ID: </span>{{ news.id }}</div>
+          <div class="margin-text"><span class="header-title gray-text ">Description: </span>{{ news.description }}</div>
+          <div class="margin-text"><span class="header-title gray-text ">Available comics: </span>{{ news.comics.available}}</div>
+          <div class="margin-text"><span class="header-title gray-text ">Available series: </span>{{ news.series.available}}</div>
+          <div class="margin-text"><span class="header-title gray-text ">Available stories: </span>{{ news.stories.available}}</div>
+          <div class="margin-text"><span class="header-title gray-text ">Date modified: </span>{{ news.modified}}</div>
+          <div class="alignment2">
+          <a target="_blank" class="button is-link alignment" :href="news.urls[2].url">COMIC LINK</a>
+          <a target="_blank" class="button is-link alignment" :href="news.urls[0].url">MORE DETAILS</a>
+        </div>
         </div>
       </div>
     </div>
@@ -35,7 +41,7 @@ export default {
   data() {
     return {
       marvelCharacter:[],
-      format: 'portrait_uncanny.jpg'
+      format: 'portrait_uncanny.jpg'    
     }
   },
   mounted() {
@@ -61,7 +67,18 @@ export default {
   padding-bottom: 60px;
   text-align: left;
 }
+.gray-text {
+  font-size: 1rem!important;
+}
 .margin-text-last{
   margin-bottom: 2.6rem;
+}
+.alignment{
+  margin-top: 1.5rem;
+  margin-right: .5rem;
+}
+.alignment2{
+  display: flex;
+  justify-content: center;
 }
 </style>

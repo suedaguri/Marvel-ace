@@ -15,15 +15,11 @@
           <hr class="pink-line"/>
           <div class="content">
           <div class="margin-text"><span class="gray-text">Description: </span>{{ news.description }}</div>
+          <div class="margin-text"><span class="gray-text">Number of Pages: </span>{{news.pageCount}}</div>
           <div class="margin-text"><span class="gray-text">Format: </span>{{news.format}}</div>
-          <div class="margin-text-last"><span class="gray-text">Number of Pages: </span>{{news.pageCount}}</div>
-          <a target="_blank" class="button is-link alignment" :href="news.urls[0].url">More about me</a>
+          <a target="_blank" class="button is-link alignment" :href="news.urls[0].url">MORE DETAILS</a>
         </div>
       </div>
-    </div>
-    <div class="content2">
-      <div class="header-title">MY COMICS</div>
-      <div></div>
     </div>
     </div>
     </div>
