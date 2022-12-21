@@ -5,24 +5,24 @@
         <div class="app">
         <div class="header-title header-title--margin">Super<span class="header-orange">Hero.</span></div>
         <div class="border">
-        <div v-for="news in marvelCharacter" :key="news.name">
+        <div v-for="character in marvelCharacter" :key="character.name">
           <div class="columns">
           <div class="column is-half">
-          <img :src="`${news.thumbnail.path}/${format}`" alt="">
+          <img :src="`${character.thumbnail.path}/${format}`" alt="">
           </div>
           <div class="column is-half">
-         <div class="header-title">{{ news.name }}</div>
+         <div class="header-title">{{ character.name }}</div>
           <hr class="pink-line"/>
           <div class="content">
-          <div class="margin-text"><span class="gray-text ">ID: </span>{{ news.id }}</div>
-          <div class="margin-text"><span class="gray-text ">Description: </span>{{ news.description }}</div>
-          <div class="margin-text"><span class="gray-text ">Available comics: </span>{{ news.comics.available}}</div>
-          <div class="margin-text"><span class="gray-text ">Available series: </span>{{ news.series.available}}</div>
-          <div class="margin-text"><span class="gray-text ">Available stories: </span>{{ news.stories.available}}</div>
-          <div class="margin-text last"><span class="gray-text">Date modified: </span>{{ news.modified}}</div>
+          <div class="margin-text"><span class="gray-text ">ID: </span>{{ character.id }}</div>
+          <div class="margin-text"><span class="gray-text ">Description: </span>{{ character.description }}</div>
+          <div class="margin-text"><span class="gray-text ">Available comics: </span>{{ character.comics.available}}</div>
+          <div class="margin-text"><span class="gray-text ">Available series: </span>{{ character.series.available}}</div>
+          <div class="margin-text"><span class="gray-text ">Available stories: </span>{{ character.stories.available}}</div>
+          <div class="margin-text last"><span class="gray-text">Date modified: </span>{{ character.modified}}</div>
           </div>
-          <a target="_blank" class="button is-link alignment" :href="news.urls[2].url">COMIC LINK</a>
-          <a target="_blank" class="button is-link alignment" :href="news.urls[0].url">MORE DETAILS</a>
+          <a target="_blank" class="button is-link alignment" :href="character.urls[2].url">COMIC LINK</a>
+          <a target="_blank" class="button is-link alignment" :href="character.urls[0].url">MORE DETAILS</a>
         </div>
       
     </div>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'SingleNews',
+  name: 'Single-character',
   data() {
     return {
       marvelCharacter:[],
@@ -44,10 +44,10 @@ export default {
     }
   },
   mounted() {
-    this.fetchSingleNews(this.$route.params.id);
+    this.fetchSinglecharacter(this.$route.params.id);
   },
   methods: {
-    fetchSingleNews(id) {
+    fetchSinglecharacter(id) {
       fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?ts=1&apikey=d2ca9edd4af913f574f7106d3938aa10&hash=39c369c7ffefca54e9133674f8be9e84&limit=1`)
       .then(response => response.json())
       .then((result) => {

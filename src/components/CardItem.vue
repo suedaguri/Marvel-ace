@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-  <router-link :to="'/single-news/'+ cardID" >
+  <router-link :to="'/single-character/'+ cardID" >
   <div class="card-image">
     <figure class="image is-4by3">
       <img :src="cardImage" :alt="cardTitle">

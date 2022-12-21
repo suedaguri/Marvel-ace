@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../views/HomePage.vue'
-import SingleNews from '../views/SingleNews.vue'
+import SingleCharacter from '../views/SingleCharacter.vue'
 import ComicsItem from '../views/Comics.vue'
 import SingleComics from '../views/SingleComics.vue'
 
@@ -14,9 +14,9 @@ const routes = [
     component: HomePage
   },
   {
-    path: '/single-news/:id',
-    name: 'single-news',
-    component: SingleNews
+    path: '/single-character/:id',
+    name: 'single-character',
+    component: SingleCharacter
   },
   {
     path: '/comics',

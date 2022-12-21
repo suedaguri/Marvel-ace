@@ -6,17 +6,16 @@
       <input class="input form-size" type="text" v-model="search" placeholder="Search for your superhero here...">
       </div>
       <div class="card-list">
-        <CardItem class="card-list-element" v-for="news in filteredPosts" :key="news.id"
-          :cardID = "news.id"
-          :cardTitle="news.name"
-          :cardImage="`${news.thumbnail.path}.${news.thumbnail.extension}`"
+        <CardItem class="card-list-element" v-for="character in filteredPosts" :key="character.id"
+          :cardID = "character.id"
+          :cardTitle="character.name"
+          :cardImage="`${character.thumbnail.path}.${character.thumbnail.extension}`"
           >
         </CardItem>
       </div>
     </div>
   </div>
 </template>
-<!-- :cardContent="news.description" -->
 <script>
 import CardItem from '../components/CardItem.vue';
 
@@ -27,28 +26,28 @@ export default {
   },
   data() {
     return {
-      newsList: [],
+      characterList: [],
       search: ''
     }
   },
   methods : {
-    fetchNews() {
+    fetchcharacter() {
       fetch('https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=d2ca9edd4af913f574f7106d3938aa10&hash=39c369c7ffefca54e9133674f8be9e84&limit=39&offset=291')
       .then(response => response.json())
       .then((result) => {
                 result.data.results.forEach((item)=>{
-                    this.newsList.push(item)
+                    this.characterList.push(item)
                 })
             })
     }
   },
   computed : {
 filteredPosts() {
-  return this.newsList.filter(news => news.name.toLowerCase().includes(this.search.toLowerCase()))
+  return this.characterList.filter(character => character.name.toLowerCase().includes(this.search.toLowerCase()))
 }
   },
   mounted() {
-    this.fetchNews();
+    this.fetchcharacter();
   }
 }
 </script>
