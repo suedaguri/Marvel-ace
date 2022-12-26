@@ -5,19 +5,19 @@
         <div class="app">
         <div class="header-title1 header-title--margin">Super<span class="header-orange">Comic.</span></div>
         <div class="border">
-        <div v-for="news in marvelCharacter" :key="news.title">
+        <div v-for="character in marvelCharacter" :key="character.title">
           <div class="columns">
           <div class="column is-half">
-          <img :src="`${news.thumbnail.path}/${format}`" alt="">
+          <img :src="`${character.thumbnail.path}/${format}`" alt="">
           </div>
           <div class="column is-half">
-         <div class="header-title">{{ news.title }}</div>
+         <div class="header-title">{{ character.title }}</div>
           <hr class="pink-line"/>
           <div class="content">
-          <div class="margin-text"><span class="gray-text">Description: </span>{{ news.description }}</div>
-          <div class="margin-text"><span class="gray-text">Number of Pages: </span>{{news.pageCount}}</div>
-          <div class="margin-text"><span class="gray-text">Format: </span>{{news.format}}</div>
-          <a target="_blank" class="button is-link alignment" :href="news.urls[0].url">MORE DETAILS</a>
+          <div class="margin-text"><span class="gray-text">Description: </span>{{ character.description }}</div>
+          <div class="margin-text"><span class="gray-text">Number of Pages: </span>{{character.pageCount}}</div>
+          <div class="margin-text"><span class="gray-text">Format: </span>{{character.format}}</div>
+          <a target="_blank" class="button is-link alignment" :href="character.urls[0].url">MORE DETAILS</a>
         </div>
       </div>
     </div>
@@ -39,10 +39,10 @@
       }
     },
     mounted() {
-      this.fetchSingleNews(this.$route.params.id);
+      this.fetchSinglecharacter(this.$route.params.id);
     },
     methods: {
-      fetchSingleNews(id) {
+      fetchSinglecharacter(id) {
         fetch(`https://gateway.marvel.com:443/v1/public/comics/${id}?ts=1&apikey=d2ca9edd4af913f574f7106d3938aa10&hash=39c369c7ffefca54e9133674f8be9e84&limit=1`)
         .then(response => response.json())
         .then((result) => {
